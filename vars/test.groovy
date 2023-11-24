@@ -2,14 +2,9 @@ def call(Closure action) {
     try {
         action()
     } catch(e){
-        emailext    body: '$DEFAULT_CONTENT', 
-                    recipientProviders: [
-                        [$class: 'DevelopersRecipientProvider'],
-                        [$class: 'RequesterRecipientProvider']
-                    ], 
-                    replyTo: '$DEFAULT_REPLYTO', 
+        emailext    body: 'the execution finished',
                     subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - ERROR!',
-                    to: '$DEFAULT_RECIPIENTS'
+                    to: 'kidflash76@gmail.com'
         throw err
     }   
 }
